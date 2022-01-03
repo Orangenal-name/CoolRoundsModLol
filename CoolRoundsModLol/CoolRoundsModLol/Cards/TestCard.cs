@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
+using ModdingUtils.RoundsEffects;
 
 namespace CoolRoundsModLol.Cards
 {
-    class GhostBullet : CustomCard
+    class TestCard : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
+            block.forceToAdd = -10f;
+            statModifiers.health = 2f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            gun.ignoreWalls = true;
-            gun.attackSpeedMultiplier = 0.8f;
+            player.gameObject.GetOrAddComponent<MyHitSurfaceEffect>();
+            gun.unblockable = true;
+            gun.teleport = true;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -31,11 +36,11 @@ namespace CoolRoundsModLol.Cards
 
         protected override string GetTitle()
         {
-            return "Ghost Bullet";
+            return "Test card";
         }
         protected override string GetDescription()
         {
-            return "Shoot through walls!";
+            return "Test Card";
         }
         protected override GameObject GetCardArt()
         {
@@ -43,7 +48,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -51,13 +56,21 @@ namespace CoolRoundsModLol.Cards
             {
                 new CardInfoStat()
                 {
+                    positive = true,
+                    stat = "Health",
+                    amount = "×2",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
                     positive = false,
-                    stat = "ATKSPD",
-                    amount = "-20%",
+                    stat = "Block Cooldown",
+                    amount = "-0.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
+
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;

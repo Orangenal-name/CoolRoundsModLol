@@ -12,6 +12,8 @@ namespace CoolRoundsModLol
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("pykess.rounds.plugins.gununblockablepatch", BepInDependency.DependencyFlags.HardDependency)]
+
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
     // The game our mod is associated with
@@ -33,9 +35,11 @@ namespace CoolRoundsModLol
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<Spasm>();
+            CustomCard.BuildCard<TestCard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
+            CustomCard.BuildCard<GhostBullet>();
+            CustomCard.BuildCard<KnockBackStick>();
         }
     }
 }
