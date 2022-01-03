@@ -19,8 +19,8 @@ namespace CoolRoundsModLol.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            gun.knockback = 20f;
-            gun.damage *= 0.4f;
+            gun.knockback += 20f;
+            gun.damage *= 0.6f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -35,7 +35,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override string GetDescription()
         {
-            return "Gain loads of knockback, but 0 damage!";
+            return "Gain loads of knockback at the cost of some damage!";
         }
         protected override GameObject GetCardArt()
         {
@@ -43,7 +43,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Rare;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -53,14 +53,14 @@ namespace CoolRoundsModLol.Cards
                 {
                     positive = true,
                     stat = "knockback",
-                    amount = "+amount",
+                    amount = "+20",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Damage",
-                    amount = "0",
+                    amount = "-40%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
