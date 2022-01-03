@@ -4,6 +4,7 @@ using UnboundLib.Cards;
 using CoolRoundsModLol.Cards;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ModdingUtils.RoundsEffects;
 
 namespace CoolRoundsModLol
 {
@@ -32,7 +33,9 @@ namespace CoolRoundsModLol
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<MyCardName>();
+            CustomCard.BuildCard<Spasm>();
+            CustomCard.BuildCard<Bundle>();
+            CustomCard.BuildCard<Piercing>();
         }
     }
 }

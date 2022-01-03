@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using ModdingUtils.RoundsEffects;
 
 namespace CoolRoundsModLol.Cards
 {
-    class Spasm : CustomCard
+    class Bundle : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            block.forceToAdd = -10f;
-            statModifiers.health = 2f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            player.gameObject.GetOrAddComponent<MyHitSurfaceEffect>();
-            gun.unblockable = true;
+            gun.numberOfProjectiles = gunAmmo.maxAmmo;
+            gun.spread = 0f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -35,11 +31,11 @@ namespace CoolRoundsModLol.Cards
 
         protected override string GetTitle()
         {
-            return "Test card";
+            return "Bundling";
         }
         protected override string GetDescription()
         {
-            return "What this card does will definitely change.";
+            return "Bundle all your bullets together for a super bullet!";
         }
         protected override GameObject GetCardArt()
         {
@@ -47,7 +43,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -56,20 +52,12 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "×2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "-0.5s",
+                    stat = "",
+                    amount = "",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
-
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;

@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using ModdingUtils.RoundsEffects;
 
 namespace CoolRoundsModLol.Cards
 {
-    class Spasm : CustomCard
+    class Piercing : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            block.forceToAdd = -10f;
-            statModifiers.health = 2f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            player.gameObject.GetOrAddComponent<MyHitSurfaceEffect>();
             gun.unblockable = true;
+            gunAmmo.maxAmmo -= 2;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -35,11 +31,11 @@ namespace CoolRoundsModLol.Cards
 
         protected override string GetTitle()
         {
-            return "Test card";
+            return "Piercing";
         }
         protected override string GetDescription()
         {
-            return "What this card does will definitely change.";
+            return "Make people unable to block your shots!";
         }
         protected override GameObject GetCardArt()
         {
@@ -55,21 +51,13 @@ namespace CoolRoundsModLol.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "Health",
-                    amount = "×2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
                     positive = false,
-                    stat = "Block Cooldown",
-                    amount = "-0.5s",
+                    stat = "ammo",
+                    amount = "-2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
-
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;
