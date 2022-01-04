@@ -21,7 +21,7 @@ namespace CoolRoundsModLol.Cards
         {
 
             //BehindYou_Effect behindYou = player.gameObject.AddComponent<BehindYou_Effect>();
-            ByeByeEffect behindYou = player.gameObject.GetOrAddComponent<ByeByeEffect>();
+            SwapEffect behindYou = player.gameObject.GetOrAddComponent<SwapEffect>();
             behindYou.player = player;
             behindYou.block = block;
             behindYou.data = data;

@@ -46,7 +46,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
             CustomCard.BuildCard<KnockBackStick>();
-            //CustomCard.BuildCard<CrissCross>();
+            CustomCard.BuildCard<CrissCross>();
         }
     }
 }

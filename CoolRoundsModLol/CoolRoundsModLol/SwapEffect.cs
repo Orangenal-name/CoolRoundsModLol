@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CoolRoundsModLol
 {
-    class ByeByeEffect : MonoBehaviour
+    class SwapEffect : MonoBehaviour
     {
         public Block block;
         public Player player;
@@ -28,7 +28,7 @@ namespace CoolRoundsModLol
                 List<Player> players = PlayerManager.instance.players;
                 List<Player> enemies = new List<Player>();
 
-                for (int i = players.Count(); i >= 0; i--)
+                for (int i = players.Count() - 1; i >= 0; i--)
                 {
                     if (!(players[i].teamID == player.teamID))
                     {
@@ -36,25 +36,29 @@ namespace CoolRoundsModLol
                     }
                 }
 
-                Vector3 playerPosition = player.transform.position;
+                
                 if (enemies.Count < 1)
                 {
-                    UnityEngine.Debug.Log("No Enemies");
                     return;
                 }
 
                 Player enemy = enemies[0];
                 Vector3 enemyPosition = enemy.transform.position;
+                Vector3 playerPosition = player.transform.position;
 
-                Vector3 storedPlayerPosition = playerPosition;
                 Vector3 storedEnemyPosition = enemyPosition;
+                Vector3 storedPlayerPosition = playerPosition;
+                
 
                 enemyPosition = storedPlayerPosition;
                 playerPosition = storedEnemyPosition;
 
 
                 player.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
+                enemy.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
+                enemy.transform.position = enemyPosition;
                 player.transform.position = playerPosition;
+                
 
 
             };
