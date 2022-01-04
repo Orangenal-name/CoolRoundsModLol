@@ -22,9 +22,9 @@ namespace CoolRoundsModLol.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            player.gameObject.GetOrAddComponent<MyHitSurfaceEffect>();
+            player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
             gun.unblockable = true;
-            gun.teleport = true;
+
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
         }

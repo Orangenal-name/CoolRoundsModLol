@@ -5,6 +5,8 @@ using CoolRoundsModLol.Cards;
 using HarmonyLib;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.RoundsEffects;
+using UnboundLib.GameModes;
+using UnityEngine;
 
 namespace CoolRoundsModLol
 {
@@ -13,7 +15,6 @@ namespace CoolRoundsModLol
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.gununblockablepatch", BepInDependency.DependencyFlags.HardDependency)]
-
     // Declares our mod to Bepin
     [BepInPlugin(ModId, ModName, Version)]
     // The game our mod is associated with
@@ -32,14 +33,20 @@ namespace CoolRoundsModLol
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
         }
+
+        private Player player;
+        private Gun gun;
+        private GunAmmo gunAmmo;
+
         void Start()
         {
             instance = this;
-            CustomCard.BuildCard<TestCard>();
+            //CustomCard.BuildCard<TestCard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
             CustomCard.BuildCard<KnockBackStick>();
+            //CustomCard.BuildCard<CrissCross>();
         }
     }
 }

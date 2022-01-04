@@ -6,19 +6,22 @@ using UnityEngine;
 
 namespace CoolRoundsModLol
 {
-    class MyHitSurfaceEffect : HitSurfaceEffect
+    class bundleMaker : HitSurfaceEffect
     {
         private Player player;
         private Gun gun;
+        private GunAmmo gunAmmo;
 
         public override void Hit(Vector2 position, Vector2 normal, Vector2 velocity)
         {
-
             this.player = this.gameObject.GetComponent<Player>();
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
-            gun.numberOfProjectiles = 10;
+            this.gunAmmo = gun.GetComponentInChildren<GunAmmo>();
+
+            gun.damage *= gunAmmo.maxAmmo;
+            gun.numberOfProjectiles = 1;
+            gunAmmo.maxAmmo = 1;
             gun.spread = 0f;
-            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
         }
     }
 }
