@@ -47,6 +47,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<GhostBullet>();
             CustomCard.BuildCard<KnockBackStick>();
             CustomCard.BuildCard<CrissCross>();
+            CustomCard.BuildCard<TeleportBullets>();
         }
     }
 }
