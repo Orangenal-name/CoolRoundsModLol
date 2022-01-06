@@ -19,6 +19,7 @@ namespace CoolRoundsModLol
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
             this.TpLoc = new Vector3(position.x + player.transform.localScale.x, position.y + player.transform.localScale.y, player.transform.position.z);
 
+            player.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
             player.transform.position = TpLoc;
         }
     }
