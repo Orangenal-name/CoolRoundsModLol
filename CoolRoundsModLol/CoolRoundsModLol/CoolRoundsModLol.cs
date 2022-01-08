@@ -40,6 +40,10 @@ namespace CoolRoundsModLol
 
         void Start()
         {
+            private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("coolroundsartlol", typeof(CoolRoundsModLol).Assembly);
+
+            public static GameObject BundleArt = Bundle.LoadAsset<GameObject>("C_BundleCard");
+
             instance = this;
             //CustomCard.BuildCard<TestCard>();
             CustomCard.BuildCard<Bundle>();
