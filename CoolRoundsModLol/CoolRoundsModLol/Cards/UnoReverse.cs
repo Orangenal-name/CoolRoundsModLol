@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CoolRoundsModLol.Cards
 {
-    class CrissCross : CustomCard
+    class UnoReverse : CustomCard
     {
 
         private float block_cooldown = 0.5f;
@@ -32,15 +32,15 @@ namespace CoolRoundsModLol.Cards
         }
         protected override string GetTitle()
         {
-            return "Criss-cross";
+            return "Uno Reverse";
         }
         protected override string GetDescription()
         {
-            return "Criss-cross apple sauce, you swap positions with your enemies when you block!";
+            return " Change directions! You swap positions with your enemies when you block!";
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return Assets.UnoReverseArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {

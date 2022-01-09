@@ -25,6 +25,7 @@ namespace CoolRoundsModLol.Cards
             gun.damage *= gunAmmo.maxAmmo;
             gun.numberOfProjectiles = 1;
             gunAmmo.maxAmmo = 1;
+            gun.bursts = 0;
             player.gameObject.GetOrAddComponent<bundleMaker>();
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
@@ -44,11 +45,11 @@ namespace CoolRoundsModLol.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return CoolRoundsModLol.BundleArt;
+            return Assets.BundleArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Common;
         }
         protected override CardInfoStat[] GetStats()
         {

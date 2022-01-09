@@ -22,6 +22,7 @@ namespace CoolRoundsModLol
             gun.numberOfProjectiles = 1;
             gunAmmo.maxAmmo = 1;
             gun.spread = 0f;
+            gun.bursts = 0;
         }
     }
 }

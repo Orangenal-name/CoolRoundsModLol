@@ -34,23 +34,17 @@ namespace CoolRoundsModLol
             harmony.PatchAll();
         }
 
-        private Player player;
-        private Gun gun;
-        private GunAmmo gunAmmo;
 
         void Start()
         {
-            private static readonly AssetBundle Bundle = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("coolroundsartlol", typeof(CoolRoundsModLol).Assembly);
-
-            public static GameObject BundleArt = Bundle.LoadAsset<GameObject>("C_BundleCard");
-
             instance = this;
+            
             //CustomCard.BuildCard<TestCard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
             CustomCard.BuildCard<KnockBackStick>();
-            CustomCard.BuildCard<CrissCross>();
+            CustomCard.BuildCard<UnoReverse>();
             CustomCard.BuildCard<TeleportBullets>();
         }
     }
