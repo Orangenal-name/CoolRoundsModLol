@@ -7,6 +7,8 @@ using CardChoiceSpawnUniqueCardPatch.CustomCategories;
 using ModdingUtils.RoundsEffects;
 using UnboundLib.GameModes;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CoolRoundsModLol
 {
@@ -34,12 +36,14 @@ namespace CoolRoundsModLol
             harmony.PatchAll();
         }
 
+        
 
         void Start()
         {
             instance = this;
-            
+
             //CustomCard.BuildCard<TestCard>();
+            // this is only here because my friend made me: CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
