@@ -43,7 +43,7 @@ namespace CoolRoundsModLol
             instance = this;
 
             //CustomCard.BuildCard<TestCard>();
-            // this is only here because my friend made me: CustomCard.BuildCard<Fard>();
+            CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();

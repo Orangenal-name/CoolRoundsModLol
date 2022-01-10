@@ -14,6 +14,7 @@ namespace CoolRoundsModLol
         public static GameObject GhostBulletArt = Bundle.LoadAsset<GameObject>("C_GhostBullet");
         public static GameObject UnoReverseArt = Bundle.LoadAsset<GameObject>("C_UnoReverse");
         public static GameObject FardBulletArt = Bundle.LoadAsset<GameObject>("C_Fard");
+        public static GameObject KnockbackArt = Bundle.LoadAsset<GameObject>("C_Knockback");
 
         public static List<AudioClip> fardList = Bundle.LoadAllAssets<AudioClip>().ToList().Where(clip => clip.name.Contains("Fard")).ToList();
     }
