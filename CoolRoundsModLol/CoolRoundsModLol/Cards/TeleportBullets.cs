@@ -39,7 +39,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return Assets.TPBulletsArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
