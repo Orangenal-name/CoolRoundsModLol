@@ -19,12 +19,10 @@ namespace CoolRoundsModLol.Cards
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
-            //BehindYou_Effect behindYou = player.gameObject.AddComponent<BehindYou_Effect>();
-            SwapEffect behindYou = player.gameObject.GetOrAddComponent<SwapEffect>();
-            behindYou.player = player;
-            behindYou.block = block;
-            behindYou.data = data;
+            SwapEffect Reverse = player.gameObject.GetOrAddComponent<SwapEffect>();
+            Reverse.player = player;
+            Reverse.block = block;
+            Reverse.data = data;
         }
         public override void OnRemoveCard()
         {

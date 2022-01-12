@@ -50,6 +50,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<KnockBackStick>();
             CustomCard.BuildCard<UnoReverse>();
             CustomCard.BuildCard<TeleportBullets>();
+            CustomCard.BuildCard<BlockLag>();
         }
     }
 }

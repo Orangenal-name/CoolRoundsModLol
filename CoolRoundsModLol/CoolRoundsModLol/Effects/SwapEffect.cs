@@ -11,14 +11,13 @@ namespace CoolRoundsModLol
         public Block block;
         public Player player;
         public CharacterData data;
-        private Action<BlockTrigger.BlockTriggerType> behindYouAction;
+        private Action<BlockTrigger.BlockTriggerType> reverseAction;
         private void Start()
         {
             if (block)
             {
-                behindYouAction = new Action<BlockTrigger.BlockTriggerType>(this.GetDoBlockAction(player, block, data));
-                block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, behindYouAction);
-                //block.BlockAction += behindYouAction;
+                reverseAction = new Action<BlockTrigger.BlockTriggerType>(this.GetDoBlockAction(player, block, data));
+                block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, reverseAction);
             }
         }
         public Action<BlockTrigger.BlockTriggerType> GetDoBlockAction(Player player, Block block, CharacterData data)
@@ -65,13 +64,12 @@ namespace CoolRoundsModLol
         }
         private void OnDestroy()
         {
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, behindYouAction);
-            //block.BlockAction -= behindYouAction;
+            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, reverseAction);
         }
         public void Destroy()
         {
             UnityEngine.Object.Destroy(this);
-            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, behindYouAction);
+            block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Remove(block.BlockAction, reverseAction);
         }
 
     }
