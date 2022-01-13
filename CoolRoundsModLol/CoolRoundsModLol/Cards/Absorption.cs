@@ -9,18 +9,20 @@ using UnityEngine;
 
 namespace CoolRoundsModLol.Cards
 {
-    class DontLeave : CustomCard
+    class Absorption : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
+            cardInfo.allowMultiple = false;
+            gun.attackSpeed *= 2f;
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            gun.reloadTime *= 0.7f;
-            player.gameObject.GetOrAddComponent<TeleportLastEffect>();
+            player.gameObject.GetOrAddComponent<AbsorbEffect>();
+            player.gameObject.GetOrAddComponent<AbsorbRemoveEffect>();
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -31,11 +33,11 @@ namespace CoolRoundsModLol.Cards
 
         protected override string GetTitle()
         {
-            return "Dont leave me";
+            return "Absorption";
         }
         protected override string GetDescription()
         {
-            return "Teleport to where your last bullet lands!";
+            return "Steal the bullets that hit you!";
         }
         protected override GameObject GetCardArt()
         {
@@ -52,8 +54,8 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "Reload Time",
-                    amount = "-30%",
+                    stat = "Attack Speed",
+                    amount = "-50%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

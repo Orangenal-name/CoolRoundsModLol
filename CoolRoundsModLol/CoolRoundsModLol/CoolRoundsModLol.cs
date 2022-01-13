@@ -45,7 +45,7 @@ namespace CoolRoundsModLol
             Unbound.RegisterCredits(ModName, new string[] { "Orangenal Name", "GoldenGaming25" }, new string[] { "GitHub" }, new string[] { "https://github.com/Orangenal-name/CoolRoundsModLol" });
 
             //CustomCard.BuildCard<TestCard>();
-            // this is for my friend: CustomCard.BuildCard<Fard>();
+            // this is here for my weird friend: CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
@@ -53,6 +53,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<UnoReverse>();
             CustomCard.BuildCard<TeleportBullets>();
             CustomCard.BuildCard<BlockLag>();
+            CustomCard.BuildCard<Absorption>();
         }
     }
 }
