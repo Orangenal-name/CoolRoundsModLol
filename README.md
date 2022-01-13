@@ -17,7 +17,7 @@ Teleporting Bullets - You teleport to where your bullet hits!<br />
 Uno Reverse - Swap positions with your opponents!<br />
 
 ## Updates
-### v1.0.1
- - Added missing dependency
 ### v1.1.0
  - Added Absorption
+### v1.0.1
+ - Added missing dependency
