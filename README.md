@@ -1,4 +1,5 @@
-# CoolRoundsModLol
+
+# Cool Rounds Mod Lol
 Cool ROUNDS mod lol
 
 This is a mod I made to mess around with my friends, and I thought I would publish it for other people to have fun too.
@@ -17,7 +18,21 @@ Teleporting Bullets - You teleport to where your bullet hits!<br />
 Uno Reverse - Swap positions with your opponents!<br />
 
 ## Updates
-### v1.1.0
- - Added Absorption
-### v1.0.1
- - Added missing dependency
+
+<details>
+<summary>v1.1.0</summary>
+<br>
+ - Added card art for Absorption <br />
+</details>
+<summary>v1.1.0</summary>
+<br>
+ - Added missing dependency <br />
+</details>
+
+<details>
+<summary>Future Updates</summary>
+<br>
+
+ - [ ] Add card art for Absorption <br />
+ - More cards (idk what they'll be yet though)
+</details>
