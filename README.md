@@ -24,6 +24,8 @@ Uno Reverse - Swap positions with your opponents!<br />
 <br>
  - Added card art for Absorption <br />
 </details>
+
+<details>
 <summary>v1.1.0</summary>
 <br>
  - Added missing dependency <br />
