@@ -20,6 +20,13 @@ Uno Reverse - Swap positions with your opponents!<br />
 ## Updates
 
 <details>
+<summary>v1.1.1</summary>
+<br>
+ - Removed unnecessary code that I copied from someone else <br />
+ - Made logging for card adding, setting up, and removal all only in debug build <br />
+</details>
+
+<details>
 <summary>v1.1.0</summary>
 <br>
  - Added card art for Absorption <br />
@@ -36,5 +43,5 @@ Uno Reverse - Swap positions with your opponents!<br />
 <br>
 
  - [ ] Add card art for Absorption <br />
- - More cards (idk what they'll be yet though)
+ - More cards (idk what they'll be yet though) <br />
 </details>
