@@ -18,6 +18,7 @@ namespace CoolRoundsModLol.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             block.forceToAdd = -10f;
             statModifiers.health = 2f;
+            block.cooldown = 0.0000001f;
             #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
             #endif
@@ -25,10 +26,21 @@ namespace CoolRoundsModLol.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
+            //player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
             gun.unblockable = true;
-            TestMono testMono = player.gameObject.AddComponent<TestMono>();
-            #if DEBUG
+            //TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
+
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(new ObjectsToSpawn
+            {
+                AddToProjectile = new GameObject("A_Thruster", new Type[]
+                    {
+                        typeof(Thruster)
+                    })
+            });
+            gun.objectsToSpawn = list.ToArray();
+
+#if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             #endif
         }

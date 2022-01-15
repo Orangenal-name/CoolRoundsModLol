@@ -18,10 +18,6 @@ namespace CoolRoundsModLol
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
             gun.numberOfProjectiles = 10;
             gun.spread = 0f;
-            
-            #if DEBUG
-            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
-            #endif
         }
     }
 }
