@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CoolRoundsModLol
 {
-    class bundleMaker : HitSurfaceEffect
+    class BundleMaker : HitSurfaceEffect
     {
         private Player player;
         private Gun gun;

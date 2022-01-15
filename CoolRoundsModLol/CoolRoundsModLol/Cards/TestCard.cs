@@ -7,6 +7,7 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using ModdingUtils.RoundsEffects;
+using CoolRoundsModLol.MonoBehaviours;
 
 namespace CoolRoundsModLol.Cards
 {
@@ -26,9 +27,9 @@ namespace CoolRoundsModLol.Cards
             //Edits values on player when card is selected
             player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
             gun.unblockable = true;
+            TestMono testMono = player.gameObject.AddComponent<TestMono>();
             #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}] test.");
             #endif
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

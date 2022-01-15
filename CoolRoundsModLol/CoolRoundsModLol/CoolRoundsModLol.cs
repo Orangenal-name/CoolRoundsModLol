@@ -42,10 +42,12 @@ namespace CoolRoundsModLol
         {
             instance = this;
 
-            Unbound.RegisterCredits(ModName, new string[] { "Orangenal Name", "GoldenGaming25 (Card ideas)" }, new string[] { "GitHub" }, new string[] { "https://github.com/Orangenal-name/CoolRoundsModLol" });
+            Unbound.RegisterCredits(ModName, new string[] { "Orangenal Name - Developer", "GoldenGaming25 - Idea man" }, new string[] { "GitHub" }, new string[] { "https://github.com/Orangenal-name/CoolRoundsModLol" });
 
-            //CustomCard.BuildCard<TestCard>();
-            // this is here for my weird friend: CustomCard.BuildCard<Fard>();
+            #if DEBUG
+            CustomCard.BuildCard<TestCard>();
+            #endif
+            CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();

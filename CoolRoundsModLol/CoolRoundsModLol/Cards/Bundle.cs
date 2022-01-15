@@ -29,7 +29,7 @@ namespace CoolRoundsModLol.Cards
             gun.numberOfProjectiles = 1;
             gunAmmo.maxAmmo = 1;
             gun.bursts = 0;
-            player.gameObject.GetOrAddComponent<bundleMaker>();
+            player.gameObject.GetOrAddComponent<BundleMaker>();
             #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             #endif
