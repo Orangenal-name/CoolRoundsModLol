@@ -47,7 +47,5 @@ Uno Reverse - Swap positions with your opponents!<br />
 <details>
 <summary>Future Updates</summary>
 <br>
-
- - [x] Add card art for Absorption <br />
  - More cards (idk what they'll be yet though) <br />
 </details>
