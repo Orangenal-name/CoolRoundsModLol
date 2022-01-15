@@ -16,7 +16,9 @@ namespace CoolRoundsModLol.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             cardInfo.allowMultiple = false;
             block.cdAdd = 0.25f;
+            #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
+            #endif
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -25,12 +27,16 @@ namespace CoolRoundsModLol.Cards
             Rewind.player = player;
             Rewind.block = block;
             Rewind.data = data;
+            #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            #endif
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
+            #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            #endif
         }
 
         protected override string GetTitle()

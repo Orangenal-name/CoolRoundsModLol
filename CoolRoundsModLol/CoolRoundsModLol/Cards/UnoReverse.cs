@@ -1,5 +1,4 @@
-﻿using CoolRoundsModLol.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using UnboundLib;
@@ -10,23 +9,28 @@ namespace CoolRoundsModLol.Cards
 {
     class UnoReverse : CustomCard
     {
-
-        private float block_cooldown = 0.5f;
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
-            block.cdMultiplier = 1f + block_cooldown;
+            block.cdMultiplier = 1.5f;
+            #if DEBUG
+            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
+            #endif
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             SwapEffect Reverse = player.gameObject.GetOrAddComponent<SwapEffect>();
             Reverse.player = player;
             Reverse.block = block;
-            Reverse.data = data;
+            #if DEBUG
+            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
+            #endif
         }
-        public override void OnRemoveCard()
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            #if DEBUG
+            UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
+            #endif
         }
         protected override string GetTitle()
         {
@@ -48,7 +52,13 @@ namespace CoolRoundsModLol.Cards
         {
             return new CardInfoStat[]
             {
-                CardTools.FormatStat(false,"Block Cooldown",block_cooldown)
+                new CardInfoStat()
+                {
+                    positive = true,
+                    stat = "",
+                    amount = "",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                }
             };
         }
         protected override CardThemeColor.CardThemeColorType GetTheme()
