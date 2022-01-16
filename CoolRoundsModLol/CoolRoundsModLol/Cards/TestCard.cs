@@ -8,6 +8,13 @@ using UnboundLib.Cards;
 using UnityEngine;
 using ModdingUtils.RoundsEffects;
 using CoolRoundsModLol.MonoBehaviours;
+using System.Collections.ObjectModel;
+using UnboundLib.Utils;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 namespace CoolRoundsModLol.Cards
 {
@@ -18,10 +25,13 @@ namespace CoolRoundsModLol.Cards
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             block.forceToAdd = -10f;
             statModifiers.health = 2f;
-            block.cooldown = 0.0000001f;
-            #if DEBUG
+            block.cdAdd = -9999f;
+
+
+
+#if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
-            #endif
+#endif
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -30,26 +40,27 @@ namespace CoolRoundsModLol.Cards
             gun.unblockable = true;
             //TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
 
-            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
-            list.Add(new ObjectsToSpawn
+            var thruster = (GameObject)Resources.Load("0 cards/Thruster");
+            var thrusterObj = thruster.GetComponent<Gun>().objectsToSpawn[0];
+            ObjectsToSpawn clonedThrusterObj = null;
+            clonedThrusterObj = new CopyThrusters(thrusterObj);
+            clonedThrusterObj.AddToProjectile.GetComponent<Thruster>().force = 20000f;
+
+            gun.objectsToSpawn = new[]
             {
-                AddToProjectile = new GameObject("A_Thruster", new Type[]
-                    {
-                        typeof(Thruster)
-                    })
-            });
-            gun.objectsToSpawn = list.ToArray();
+                thrusterObj
+            };
 
 #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
-            #endif
+#endif
         }
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
-            #if DEBUG
+#if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-            #endif
+#endif
         }
 
         protected override string GetTitle()
@@ -62,7 +73,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return Assets.TestArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {
@@ -96,6 +107,14 @@ namespace CoolRoundsModLol.Cards
         public override string GetModName()
         {
             return CoolRoundsModLol.ModInitials;
+        }
+    }
+    class CopyThrusters : ICloneable
+    {
+        public object Clone()
+        {
+            var variable = (ObjectsToSpawn)MemberwiseClone();
+            return variable;
         }
     }
 }
