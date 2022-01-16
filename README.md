@@ -47,5 +47,7 @@ Uno Reverse - Swap positions with your opponents!<br />
 <details>
 <summary>Future Updates</summary>
 <br>
- - More cards (idk what they'll be yet though) <br />
+ - More cards <br />
+ - Card idea 1: Reverse thrusters (working on the reverse part) <br />
+ - Card idea 2: opposite bundling??
 </details>
