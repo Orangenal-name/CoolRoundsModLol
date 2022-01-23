@@ -5,7 +5,6 @@ Cool ROUNDS mod lol
 This is a mod I made to mess around with my friends, and I thought I would publish it for other people to have fun too.
 Not professional at all.
 
-
 ### Cards
 Bundling - Bundle all your bullets together for a super bullet!<br />
 Absorption - Steal the bullets that hit you!<br />
@@ -18,6 +17,12 @@ Teleporting Bullets - You teleport to where your bullet hits!<br />
 Uno Reverse - Swap positions with your opponents!<br />
 
 ## Updates
+
+<details>
+<summary>v1.1.3</summary>
+<br>
+ - Fixed the incorrect visible stats for Uno Reverse and Ghost Bullet cards <br />
+</details>
 
 <details>
 <summary>v1.1.2</summary>
@@ -51,3 +56,8 @@ Uno Reverse - Swap positions with your opponents!<br />
  - Card idea 1: Reverse thrusters (working on the reverse part) <br />
  - Card idea 2: opposite bundling??
 </details>
+
+## Mod Status
+Due to school, this project is not being actively worked on. Please still report bugs when found, as I will occasionally work on the mod to fix them.
+##### Will there be new cards?
+Yes, although I may not be able to work on this mod very often, I will still add cards when me or my friends get the ideas.
