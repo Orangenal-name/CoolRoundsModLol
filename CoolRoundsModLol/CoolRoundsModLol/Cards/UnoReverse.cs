@@ -54,9 +54,9 @@ namespace CoolRoundsModLol.Cards
             {
                 new CardInfoStat()
                 {
-                    positive = true,
-                    stat = "",
-                    amount = "",
+                    positive = false,
+                    stat = "Block Cooldown",
+                    amount = "+0.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

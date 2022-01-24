@@ -5,7 +5,6 @@ Cool ROUNDS mod lol
 This is a mod I made to mess around with my friends, and I thought I would publish it for other people to have fun too.
 Not professional at all.
 
-
 ### Cards
 Bundling - Bundle all your bullets together for a super bullet!<br />
 Absorption - Steal the bullets that hit you!<br />
@@ -20,6 +19,18 @@ Uno Reverse - Swap positions with your opponents!<br />
 ## Updates
 
 <details>
+<summary>v1.1.3</summary>
+<br>
+ - Fixed the incorrect visible stats for Uno Reverse and Ghost Bullet cards <br />
+</details>
+
+<details>
+<summary>v1.1.2</summary>
+<br>
+ - Added card art for Absorption <br />
+</details>
+
+<details>
 <summary>v1.1.1</summary>
 <br>
  - Removed unnecessary code that I copied from someone else <br />
@@ -29,11 +40,11 @@ Uno Reverse - Swap positions with your opponents!<br />
 <details>
 <summary>v1.1.0</summary>
 <br>
- - Added card art for Absorption <br />
+ - Added Absorption <br />
 </details>
 
 <details>
-<summary>v1.1.0</summary>
+<summary>v1.0.1</summary>
 <br>
  - Added missing dependency <br />
 </details>
@@ -41,7 +52,12 @@ Uno Reverse - Swap positions with your opponents!<br />
 <details>
 <summary>Future Updates</summary>
 <br>
-
- - [ ] Add card art for Absorption <br />
- - More cards (idk what they'll be yet though) <br />
+ - More cards <br />
+ - Card idea 1: Reverse thrusters (working on the reverse part) <br />
+ - Card idea 2: opposite bundling??
 </details>
+
+## Mod Status
+Due to school, this project is not being actively worked on. Please still report bugs when found, as I will occasionally work on the mod to fix them.
+##### Will there be new cards?
+Yes, although I may not be able to work on this mod very often, I will still add cards when me or my friends get the ideas.
