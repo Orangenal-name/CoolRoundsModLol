@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace CoolRoundsModLol
+namespace CoolRoundsModLol.RoundsEffects
 {
     class LagEffect : MonoBehaviour
     {

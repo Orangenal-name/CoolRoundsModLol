@@ -6,7 +6,7 @@ using ModdingUtils.RoundsEffects;
 using UnboundLib;
 using UnityEngine;
 
-namespace CoolRoundsModLol
+namespace CoolRoundsModLol.RoundsEffects
 {
     class FardEffect : HitSurfaceEffect
     {

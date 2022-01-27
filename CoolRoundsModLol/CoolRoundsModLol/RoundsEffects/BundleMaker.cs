@@ -4,7 +4,7 @@ using System.Text;
 using ModdingUtils.RoundsEffects;
 using UnityEngine;
 
-namespace CoolRoundsModLol
+namespace CoolRoundsModLol.RoundsEffects
 {
     class BundleMaker : HitSurfaceEffect
     {

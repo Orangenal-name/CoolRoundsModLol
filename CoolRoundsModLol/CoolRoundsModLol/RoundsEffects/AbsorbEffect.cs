@@ -5,7 +5,7 @@ using CoolRoundsModLol.Cards;
 using ModdingUtils.RoundsEffects;
 using UnityEngine;
 
-namespace CoolRoundsModLol
+namespace CoolRoundsModLol.RoundsEffects
 {
     class AbsorbEffect : WasHitEffect
     {

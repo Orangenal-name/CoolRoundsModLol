@@ -40,16 +40,16 @@ namespace CoolRoundsModLol.Cards
             gun.unblockable = true;
             //TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
 
-            var thruster = (GameObject)Resources.Load("0 cards/Thruster");
-            var thrusterObj = thruster.GetComponent<Gun>().objectsToSpawn[0];
-            ObjectsToSpawn clonedThrusterObj = null;
-            clonedThrusterObj = new CopyThrusters(thrusterObj);
-            clonedThrusterObj.AddToProjectile.GetComponent<Thruster>().force = 20000f;
+            //var thruster = (GameObject)Resources.Load("0 cards/Thruster");
+            //var thrusterObj = thruster.GetComponent<Gun>().objectsToSpawn[0];
+            //ObjectsToSpawn clonedThrusterObj = null;
+            //clonedThrusterObj = new CopyThrusters(thrusterObj);
+            //clonedThrusterObj.AddToProjectile.GetComponent<Thruster>().force = 20000f;
 
-            gun.objectsToSpawn = new[]
-            {
-                thrusterObj
-            };
+            //gun.objectsToSpawn = new[]
+            //{
+            //    thrusterObj
+            //};
 
 #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
