@@ -38,18 +38,17 @@ namespace CoolRoundsModLol.Cards
             //Edits values on player when card is selected
             //player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
             gun.unblockable = true;
-            //TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
+            TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
 
-            //var thruster = (GameObject)Resources.Load("0 cards/Thruster");
-            //var thrusterObj = thruster.GetComponent<Gun>().objectsToSpawn[0];
-            //ObjectsToSpawn clonedThrusterObj = null;
-            //clonedThrusterObj = new CopyThrusters(thrusterObj);
-            //clonedThrusterObj.AddToProjectile.GetComponent<Thruster>().force = 20000f;
+            GameObject thruster = (GameObject)Resources.Load("0 cards/Thruster");
+            Gun clonedThrusterGun = Instantiate(thruster.GetComponent<Gun>());
+            ObjectsToSpawn clonedThrusterObj = clonedThrusterGun.objectsToSpawn[0];
+            clonedThrusterObj.AddToProjectile.GetComponent<Thruster>().force = -20000f;
 
-            //gun.objectsToSpawn = new[]
-            //{
-            //    thrusterObj
-            //};
+            gun.objectsToSpawn = new[]
+            {
+                clonedThrusterGun.objectsToSpawn[0]
+            };
 
 #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
