@@ -43,7 +43,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override string GetDescription()
         {
-            return "Bullet = Fard";
+            return "Bullet = Fard \n <color=#ff0000ff>WARNING: 2x louder with toxic clouds";
         }
         protected override GameObject GetCardArt()
         {

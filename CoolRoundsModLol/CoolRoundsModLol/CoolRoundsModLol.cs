@@ -56,6 +56,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<TeleportBullets>();
             CustomCard.BuildCard<BlockLag>();
             CustomCard.BuildCard<Absorption>();
+            CustomCard.BuildCard<PewPewCard>();
         }
     }
 }

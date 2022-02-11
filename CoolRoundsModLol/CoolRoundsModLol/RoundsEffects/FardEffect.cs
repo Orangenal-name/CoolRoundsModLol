@@ -27,9 +27,9 @@ namespace CoolRoundsModLol.RoundsEffects
             AudioSource audioSource = gameObject.GetOrAddComponent<AudioSource>();
             if (hasToxic)
             {
-                audioSource.PlayOneShot(Assets.fardList[0], 6.0f);
+                audioSource.PlayOneShot(Assets.FardClip, 6.0f);
             }
-            audioSource.PlayOneShot(Assets.fardList[0], 3.0f);
+            audioSource.PlayOneShot(Assets.FardClip, 3.0f);
         }
     }
 }

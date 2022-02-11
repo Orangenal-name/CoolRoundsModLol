@@ -21,6 +21,7 @@ namespace CoolRoundsModLol
         public static GameObject AbsorbArt = Bundle.LoadAsset<GameObject>("C_Absorb");
         public static GameObject TestArt = Bundle.LoadAsset<GameObject>("C_Test");
 
-        public static List<AudioClip> fardList = Bundle.LoadAllAssets<AudioClip>().ToList().Where(clip => clip.name.Contains("Fard")).ToList();
+        public static AudioClip FardClip = Bundle.LoadAsset<AudioClip>("A_Fard");
+        public static AudioClip PewClip = Bundle.LoadAsset<AudioClip>("A_PEW");
     }
 }
