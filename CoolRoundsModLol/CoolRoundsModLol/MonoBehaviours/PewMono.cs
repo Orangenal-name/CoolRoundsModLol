@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoolRoundsModLol.Cards;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnboundLib;
@@ -10,8 +11,14 @@ namespace CoolRoundsModLol.MonoBehaviours
     {
         private void Start()
         {
-            AudioSource audioSource = this.GetComponent<Transform>().GetComponent<GameObject>().GetOrAddComponent<AudioSource>();
-            audioSource.PlayOneShot(Assets.PewClip, 3.0f);
+            PlayPew.Play();
+        }
+    }
+    class PlayPew
+    {
+        public static void Play()
+        {
+            AudioSource.PlayClipAtPoint(Assets.PewClip, new Vector3(0, 0, 0));
         }
     }
 }

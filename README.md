@@ -15,8 +15,15 @@ Knockback Stick - get a big amount of knockback on your bullets!<br />
 Piercing - Your bullets are unblockable!<br />
 Teleporting Bullets - You teleport to where your bullet hits!<br />
 Uno Reverse - Swap positions with your opponents!<br />
+Pew pew - Pew pew!<br />
 
 ## Updates
+
+<details>
+<summary>v1.2.0</summary>
+<br>
+ - Finally added a new card (pew) <br />
+</details>
 
 <details>
 <summary>v1.1.3</summary>
