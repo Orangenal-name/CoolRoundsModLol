@@ -57,6 +57,7 @@ namespace CoolRoundsModLol
             CustomCard.BuildCard<BlockLag>();
             CustomCard.BuildCard<Absorption>();
             CustomCard.BuildCard<PewPewCard>();
+            CustomCard.BuildCard<BananaPeel>();
         }
     }
 }

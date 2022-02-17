@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoolRoundsModLol.MonoBehaviours;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,55 +7,23 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using ModdingUtils.RoundsEffects;
-using CoolRoundsModLol.MonoBehaviours;
-using System.Collections.ObjectModel;
-using UnboundLib.Utils;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml.Serialization;
-using CoolRoundsModLol.RoundsEffects;
 
 namespace CoolRoundsModLol.Cards
 {
-    class TestCard : CustomCard
+    class BananaPeel : CustomCard
     {
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
-            block.forceToAdd = -10f;
-            statModifiers.health = 2f;
-            block.cdAdd = -9999f;
-
-
-
-#if DEBUG
+            #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
-#endif
+            #endif
         }
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Edits values on player when card is selected
-            //player.gameObject.GetOrAddComponent<TestHitSurfaceEffect>();
-
-            //TestPlayerMono testMono = player.gameObject.AddComponent<TestPlayerMono>();
-
-            //GameObject thruster = (GameObject)Resources.Load("0 cards/Exploding Bullets");
-            //Gun clonedThrusterGun = Instantiate(thruster.GetComponent<Gun>());
-            //ObjectsToSpawn clonedThrusterObj = clonedThrusterGun.objectsToSpawn[0];
-            //clonedThrusterObj.AddToProjectile.GetComponent<Explosion>().range = 20000f;
-
-            //gun.objectsToSpawn = new[]
-            //{
-            //    clonedThrusterGun.objectsToSpawn[0]
-            //};
-
-            TestBlockEffect testBlockEffect = player.gameObject.GetOrAddComponent<TestBlockEffect>();
-            testBlockEffect.player = player;
-            testBlockEffect.block = block;
-
+            SlipMono slipMono = player.gameObject.AddComponent<SlipMono>();
+            slipMono.player = player;
 #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 #endif
@@ -62,26 +31,26 @@ namespace CoolRoundsModLol.Cards
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             //Run when the card is removed from the player
-#if DEBUG
+            #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been removed from player {player.playerID}.");
-#endif
+            #endif
         }
 
         protected override string GetTitle()
         {
-            return "Test card";
+            return "Banana Peels";
         }
         protected override string GetDescription()
         {
-            return "Test Card";
+            return "Randomly slip around";
         }
         protected override GameObject GetCardArt()
         {
-            return Assets.TestArt;
+            return null;
         }
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Rare;
+            return CardInfo.Rarity.Uncommon;
         }
         protected override CardInfoStat[] GetStats()
         {
@@ -90,20 +59,12 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Health",
-                    amount = "×2",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat()
-                {
-                    positive = false,
-                    stat = "Block Cooldown",
-                    amount = "-0.5s",
+                    stat = "Speed when slipping",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
-
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
             return CardThemeColor.CardThemeColorType.ColdBlue;
@@ -111,14 +72,6 @@ namespace CoolRoundsModLol.Cards
         public override string GetModName()
         {
             return CoolRoundsModLol.ModInitials;
-        }
-    }
-    class CopyThrusters : ICloneable
-    {
-        public object Clone()
-        {
-            var variable = (ObjectsToSpawn)MemberwiseClone();
-            return variable;
         }
     }
 }

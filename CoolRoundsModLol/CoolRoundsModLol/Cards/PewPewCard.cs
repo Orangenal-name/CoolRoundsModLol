@@ -15,6 +15,7 @@ namespace CoolRoundsModLol.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
+            cardInfo.allowMultiple = false;
             #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
             #endif
@@ -66,8 +67,8 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "Effect",
-                    amount = "No",
+                    stat = "",
+                    amount = "",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

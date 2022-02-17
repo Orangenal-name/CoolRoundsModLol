@@ -10,6 +10,7 @@ namespace CoolRoundsModLol.RoundsEffects
         public Player player;
         public CharacterData data;
         private Action<BlockTrigger.BlockTriggerType> rewindAction;
+        float duration = 5f;
         private void Start()
         {
             if (block)
@@ -17,6 +18,10 @@ namespace CoolRoundsModLol.RoundsEffects
                 rewindAction = new Action<BlockTrigger.BlockTriggerType>(this.GetDoBlockAction(player, block, data));
                 block.BlockAction = (Action<BlockTrigger.BlockTriggerType>)Delegate.Combine(block.BlockAction, rewindAction);
             }
+        }
+        private void Update()
+        {
+            duration -= Time.deltaTime;
         }
         public Action<BlockTrigger.BlockTriggerType> GetDoBlockAction(Player player, Block block, CharacterData data)
         {
