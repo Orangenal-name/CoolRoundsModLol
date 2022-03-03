@@ -16,7 +16,8 @@ namespace CoolRoundsModLol.Cards
         {
             //Edits values on card itself, which are then applied to the player in `ApplyCardStats`
             cardInfo.allowMultiple = false;
-            #if DEBUG
+            
+#if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been setup.");
             #endif
         }
@@ -54,7 +55,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return Assets.PewArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {

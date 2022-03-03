@@ -20,8 +20,9 @@ namespace CoolRoundsModLol
         public static GameObject RubberBandArt = Bundle.LoadAsset<GameObject>("C_Rubber");
         public static GameObject AbsorbArt = Bundle.LoadAsset<GameObject>("C_Absorb");
         public static GameObject TestArt = Bundle.LoadAsset<GameObject>("C_Test");
+        public static GameObject PewArt = Bundle.LoadAsset<GameObject>("C_Pew");
 
         public static AudioClip FardClip = Bundle.LoadAsset<AudioClip>("A_Fard");
-        public static AudioClip PewClip = Bundle.LoadAsset<AudioClip>("A_PEW");
+        public static AudioClip PewClip = Bundle.LoadAsset<AudioClip>("A_Pew");
     }
 }

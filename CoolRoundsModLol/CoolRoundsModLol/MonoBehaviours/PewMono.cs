@@ -1,19 +1,18 @@
-﻿using UnityEngine;
+﻿using Sonigon;
+using UnityEngine;
 
 namespace CoolRoundsModLol.MonoBehaviours
 {
-    class PewMono : MonoBehaviour
+    internal class PewMono : MonoBehaviour
     {
-        private void Start()
+        public void Start()
         {
-            PlayPew.Play();
-        }
-    }
-    class PlayPew
-    {
-        public static void Play()
-        {
-            AudioSource.PlayClipAtPoint(Assets.PewClip, new Vector3(0, 0, 0));
+            SoundContainer soundContainer = ScriptableObject.CreateInstance<SoundContainer>();
+            soundContainer.audioClip[0] = Assets.PewClip;
+            SoundEvent pewSound = ScriptableObject.CreateInstance<SoundEvent>();
+            pewSound.soundContainerArray[0] = soundContainer;
+
+            SoundManager.Instance.Play(pewSound, base.transform);
         }
     }
 }
