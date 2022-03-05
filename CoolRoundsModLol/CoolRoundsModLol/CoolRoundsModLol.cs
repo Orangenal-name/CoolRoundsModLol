@@ -3,12 +3,9 @@ using UnboundLib;
 using UnboundLib.Cards;
 using CoolRoundsModLol.Cards;
 using HarmonyLib;
-using CardChoiceSpawnUniqueCardPatch.CustomCategories;
-using ModdingUtils.RoundsEffects;
-using UnboundLib.GameModes;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
+using BepInEx.Configuration;
+using UnboundLib.Utils.UI;
 
 namespace CoolRoundsModLol
 {
@@ -34,9 +31,20 @@ namespace CoolRoundsModLol
             // Use this to call any harmony patch files your mod may have
             var harmony = new Harmony(ModId);
             harmony.PatchAll();
+            globalVolMute = base.Config.Bind<float>("CRML", "CRML sounds volume", 100f, "CRML sounds volume");
         }
 
-        
+        public static ConfigEntry<float> globalVolMute;
+
+        private void GlobalVolAction(float val)
+        {
+            globalVolMute.Value = val;
+        }
+
+        private void NewGUI(GameObject menu)
+        {
+            MenuHandler.CreateSlider("volume for CRML cards", menu, 50, 0f, 1f, globalVolMute.Value, GlobalVolAction, out UnityEngine.UI.Slider volumeSlider, false);
+        }
 
         void Start()
         {
@@ -46,8 +54,9 @@ namespace CoolRoundsModLol
 
             #if DEBUG
             CustomCard.BuildCard<TestCard>();
-            #endif
-            CustomCard.BuildCard<Fard>();
+#endif
+        Unbound.RegisterMenu("Cool rounds mod lol", () => { }, NewGUI, null, true);
+        CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();

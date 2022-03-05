@@ -17,20 +17,23 @@ namespace CoolRoundsModLol.RoundsEffects
         public override void Hit(Vector2 position, Vector2 normal, Vector2 velocity)
         {
             this.player = this.gameObject.GetComponent<Player>();
-            soundParameterIntensity.intensity = 0f;
+            soundParameterIntensity.intensity = 0.5f;
             foreach (CardInfo info in player.data.currentCards)
             {
                 if (info.cardName.ToLower() == "toxic cloud")
                 {
-                    soundParameterIntensity.intensity = 1000f;
+                    soundParameterIntensity.intensity = 1f;
                     UnityEngine.Debug.Log("Has Toxic Cloud!");
                     break;
                 }
             }
+            
             SoundContainer soundContainer = ScriptableObject.CreateInstance<SoundContainer>();
+            soundContainer.setting.volumeIntensityEnable = true;
             soundContainer.audioClip[0] = Assets.FardClip;
             SoundEvent fardSound = ScriptableObject.CreateInstance<SoundEvent>();
             fardSound.soundContainerArray[0] = soundContainer;
+            soundParameterIntensity.intensity *= CoolRoundsModLol.globalVolMute.Value;
             SoundManager.Instance.Play(fardSound, base.transform, new SoundParameterBase[]
             {
                 soundParameterIntensity
