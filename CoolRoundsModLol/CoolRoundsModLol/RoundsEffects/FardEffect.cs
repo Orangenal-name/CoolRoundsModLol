@@ -14,6 +14,7 @@ namespace CoolRoundsModLol.RoundsEffects
     {
         private Player player;
         private SoundParameterIntensity soundParameterIntensity = new SoundParameterIntensity(0f, UpdateMode.Continuous);
+        System.Random random = new System.Random();
         public override void Hit(Vector2 position, Vector2 normal, Vector2 velocity)
         {
             this.player = this.gameObject.GetComponent<Player>();
@@ -27,10 +28,19 @@ namespace CoolRoundsModLol.RoundsEffects
                     break;
                 }
             }
-            
+
             SoundContainer soundContainer = ScriptableObject.CreateInstance<SoundContainer>();
             soundContainer.setting.volumeIntensityEnable = true;
-            soundContainer.audioClip[0] = Assets.FardClip;
+            float percentChance = 0.25f;
+            if (UnityEngine.Random.value <= percentChance)
+            {
+                soundContainer.audioClip[0] = Assets.RareFardClip;
+            }
+            else
+            {
+                soundContainer.audioClip[0] = Assets.FardClip;
+            }
+
             SoundEvent fardSound = ScriptableObject.CreateInstance<SoundEvent>();
             fardSound.soundContainerArray[0] = soundContainer;
             soundParameterIntensity.intensity *= CoolRoundsModLol.globalVolMute.Value;

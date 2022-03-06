@@ -23,6 +23,7 @@ namespace CoolRoundsModLol
         public static GameObject PewArt = Bundle.LoadAsset<GameObject>("C_Pew");
 
         public static AudioClip FardClip = Bundle.LoadAsset<AudioClip>("A_Fard");
+        public static AudioClip RareFardClip = Bundle.LoadAsset<AudioClip>("A_Fard2");
         public static AudioClip PewClip = Bundle.LoadAsset<AudioClip>("A_Pew");
     }
 }
