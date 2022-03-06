@@ -24,7 +24,6 @@ namespace CoolRoundsModLol.RoundsEffects
                 if (info.cardName.ToLower() == "toxic cloud")
                 {
                     soundParameterIntensity.intensity = 1f;
-                    UnityEngine.Debug.Log("Has Toxic Cloud!");
                     break;
                 }
             }
