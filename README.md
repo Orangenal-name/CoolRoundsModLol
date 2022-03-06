@@ -20,6 +20,16 @@ Pew pew - Pew pew!<br />
 ## Updates
 
 <details>
+<summary>v1.3.0</summary>
+<br>
+ - Made card art for pew pew <br />
+ - Changed card art for fard bullets <br />
+ - Added a volume slider in mod options <br />
+ - Added a random chance for a different sound to play on fard bullets <br />
+ - Made Uno Reverse choose a random enemy instead of the same one <br />
+</details>
+
+<details>
 <summary>v1.2.0</summary>
 <br>
  - Finally added a new card (pew) <br />
