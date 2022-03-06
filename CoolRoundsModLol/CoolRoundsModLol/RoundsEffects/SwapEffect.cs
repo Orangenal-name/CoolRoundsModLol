@@ -41,7 +41,7 @@ namespace CoolRoundsModLol.RoundsEffects
                     return;
                 }
 
-                Player enemy = enemies[0];
+                Player enemy = enemies[UnityEngine.Random.Range(0,enemies.Count)];
                 Vector3 enemyPosition = enemy.transform.position;
                 Vector3 playerPosition = player.transform.position;
 
