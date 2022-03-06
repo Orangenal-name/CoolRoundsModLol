@@ -50,13 +50,13 @@ namespace CoolRoundsModLol
         {
             instance = this;
 
-            Unbound.RegisterCredits(ModName, new string[] { "Orangenal Name - Developer", "GoldenGaming25 - Idea man" }, new string[] { "GitHub" }, new string[] { "https://github.com/Orangenal-name/CoolRoundsModLol" });
+            Unbound.RegisterCredits(ModName, new string[] { "Orangenal Name - Developer", "GoldenGaming25 - Idea man" }, new string[] { "GitHub", "Patreon" }, new string[] { "https://github.com/Orangenal-name/CoolRoundsModLol", "https://www.patreon.com/orangenal" });
 
             #if DEBUG
             CustomCard.BuildCard<TestCard>();
 #endif
-        Unbound.RegisterMenu("Cool rounds mod lol", () => { }, NewGUI, null, true);
-        CustomCard.BuildCard<Fard>();
+            Unbound.RegisterMenu("Cool rounds mod lol", () => { }, NewGUI, null, true);
+            CustomCard.BuildCard<Fard>();
             CustomCard.BuildCard<Bundle>();
             CustomCard.BuildCard<Piercing>();
             CustomCard.BuildCard<GhostBullet>();
