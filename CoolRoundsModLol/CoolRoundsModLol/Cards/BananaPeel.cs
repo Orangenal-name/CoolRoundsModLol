@@ -46,7 +46,7 @@ namespace CoolRoundsModLol.Cards
         }
         protected override GameObject GetCardArt()
         {
-            return null;
+            return Assets.PeelsArt;
         }
         protected override CardInfo.Rarity GetRarity()
         {

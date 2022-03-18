@@ -6,20 +6,38 @@ namespace CoolRoundsModLol.MonoBehaviours
 {
     class SlipMono : ReversibleEffect
     {
-        float time = Time.time;
-        float lastSlipped = Time.fixedTime;
-        int waitTime = 0;
+        private float remaining = 0;
+        private bool WillSlip = false;
+        private float rand = 0;
+        
         public override void OnStart()
         {
-            waitTime = Random.Range(10,100);
+            characterStatModifiersModifier.movementSpeed_mult = 10f;
         }
         public override void OnUpdate()
         {
-            if (time - lastSlipped >= waitTime)
+            rand = UnityEngine.Random.value;
+            float percentChance = 0.005f;
+            if (rand <= percentChance)
             {
-                characterStatModifiersModifier.movementSpeed_mult += 0.2f;
+                WillSlip = true;
             }
-            Debug.Log(Time.time);
+
+            if (remaining <= 0 && WillSlip)
+            {
+                ApplyModifiers();
+                remaining = 0.05f;
+                WillSlip = false;
+            }
+            
+            if (remaining <= 0)
+            {
+                ClearModifiers();
+            }
+            else
+            {
+                remaining -= TimeHandler.deltaTime;
+            }
         }
     }
 }

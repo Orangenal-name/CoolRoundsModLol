@@ -10,7 +10,9 @@ namespace CoolRoundsModLol.RoundsEffects
         public Player player;
         public CharacterData data;
         private Action<BlockTrigger.BlockTriggerType> rewindAction;
-        float duration = 5f;
+        private Vector3 playerPosition = new Vector3(0,0,0);
+        private bool teleportQueueing = false;
+        float remaining = 5f;
         private void Start()
         {
             if (block)
@@ -21,18 +23,24 @@ namespace CoolRoundsModLol.RoundsEffects
         }
         private void Update()
         {
-            duration -= Time.deltaTime;
+            if (remaining >= 0)
+            {
+                remaining -= Time.deltaTime;
+                teleportQueueing = true;
+            }
+            else if (teleportQueueing)
+            {
+                teleportQueueing = false;
+                player.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
+                player.transform.position = playerPosition;
+            }
         }
         public Action<BlockTrigger.BlockTriggerType> GetDoBlockAction(Player player, Block block, CharacterData data)
         {
-            return async delegate (BlockTrigger.BlockTriggerType trigger)
+            return delegate (BlockTrigger.BlockTriggerType trigger)
             {
-                Vector3 playerPosition = player.transform.position;
-
-                await Task.Delay(5000);
-
-                player.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
-                player.transform.position = playerPosition;
+                playerPosition = player.transform.position;
+                remaining = 5f;
             };
         }
         private void OnDestroy()
