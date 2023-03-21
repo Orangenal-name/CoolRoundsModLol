@@ -72,6 +72,6 @@ Banana Peels - Slip around!<br />
 </details>
 
 ## Mod Status
-Due to school, this project is not being actively worked on. Please still report bugs when found, as I will occasionally work on the mod to fix them. You can do this in [the github repo issues tab,](https://github.com/Orangenal-name/CoolRoundsModLol/issues) or in [The Rounds Modding Community Discord Server](https://discord.gg/edegxT9CJH) in the #bug-reports channel (make sure to ping me @Orangenal name#9280)
+This mod is pretty much abandoned. Please still report bugs when found, as I will occasionally check and fix them. You can do this in [the github repo issues tab,](https://github.com/Orangenal-name/CoolRoundsModLol/issues) or in [The Rounds Modding Community Discord Server](https://discord.gg/edegxT9CJH) in the #bug-reports channel (make sure to ping me @Orangenal name#9280)
 #### Will there be new cards?
-Yes, although I may not be able to work on this mod very often, I will still add cards when me or my friends get the ideas.
+No, it is unlikely for there to be any new cards added to the mod.
