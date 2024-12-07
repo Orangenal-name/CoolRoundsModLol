@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ModdingUtils.RoundsEffects;
+﻿using ModdingUtils.RoundsEffects;
+using UnboundLib;
 using UnityEngine;
 
 namespace CoolRoundsModLol.RoundsEffects
@@ -13,9 +11,10 @@ namespace CoolRoundsModLol.RoundsEffects
 
         public override void Hit(Vector2 position, Vector2 normal, Vector2 velocity)
         {
-
             this.player = this.gameObject.GetComponent<Player>();
-            this.TpLoc = new Vector3(position.x + player.transform.localScale.x, position.y + player.transform.localScale.y, player.transform.position.z);
+
+            Vector3 offset = new Vector2(normal.x * player.transform.localScale.x, normal.y * player.transform.localScale.y);
+            this.TpLoc = new Vector3(position.x + offset.x, position.y + offset.y, player.transform.position.z);
 
             player.GetComponentInParent<PlayerCollision>().IgnoreWallForFrames(2);
             player.transform.position = TpLoc;
