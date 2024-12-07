@@ -9,21 +9,21 @@ using UnboundLib.Utils.UI;
 
 namespace CoolRoundsModLol
 {
-    // These are the mods required for our mod to work
+    
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.gununblockablepatch", BepInDependency.DependencyFlags.HardDependency)]
-    // Declares our mod to Bepin
+    
     [BepInPlugin(ModId, ModName, Version)]
-    // The game our mod is associated with
+    
     [BepInProcess("Rounds.exe")]
     public class CoolRoundsModLol : BaseUnityPlugin
     {
         public static CoolRoundsModLol instance { get; private set; }
         private const string ModId = "com.Cool.Rounds.Mod.lol";
         private const string ModName = "CoolRoundsModLol";
-        public const string Version = "1.0.0"; // What version are we on (major.minor.patch)?
+        public const string Version = "1.0.0";
         public const string ModInitials = "CRML";
 
         void Awake()
@@ -43,7 +43,7 @@ namespace CoolRoundsModLol
 
         private void NewGUI(GameObject menu)
         {
-            MenuHandler.CreateSlider("volume for CRML cards", menu, 50, 0f, 1f, globalVolMute.Value, GlobalVolAction, out UnityEngine.UI.Slider volumeSlider, false);
+            MenuHandler.CreateSlider("volume for CRML cards", menu, 50, 0, 100, globalVolMute.Value, GlobalVolAction, out UnityEngine.UI.Slider volumeSlider, true);
         }
 
         void Start()
