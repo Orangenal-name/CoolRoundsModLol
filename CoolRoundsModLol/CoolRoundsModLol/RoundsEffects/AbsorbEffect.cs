@@ -30,7 +30,7 @@ namespace CoolRoundsModLol.RoundsEffects
 
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
             this.gunAmmo = gun.GetComponentInChildren<GunAmmo>();
-            reversibleEffect =  player.gameObject.AddComponent<ReversibleEffect>();
+            reversibleEffect = player.gameObject.AddComponent<ReversibleEffect>();
 
             reversibleEffect.gunAmmo.maxAmmo += 1;
             extraBullets += 1;
