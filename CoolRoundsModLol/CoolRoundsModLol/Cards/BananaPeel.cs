@@ -23,7 +23,6 @@ namespace CoolRoundsModLol.Cards
         {
             //Edits values on player when card is selected
             SlipMono slipMono = player.gameObject.AddComponent<SlipMono>();
-            slipMono.player = player;
 #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
 #endif

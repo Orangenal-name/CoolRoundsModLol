@@ -4,35 +4,38 @@ using UnityEngine;
 
 namespace CoolRoundsModLol.MonoBehaviours
 {
-    class SlipMono : ReversibleEffect
+    class SlipMono : MonoBehaviour
     {
         private float remaining = 0;
         private bool WillSlip = false;
         private float rand = 0;
-        
-        public override void OnStart()
+        private Player player;
+        private ReversibleEffect reversibleEffect;
+        private float percentChance = 0.005f;
+
+        public void Start()
         {
-            characterStatModifiersModifier.movementSpeed_mult = 10f;
+            this.player = this.gameObject.GetComponent<Player>();
+            reversibleEffect = player.gameObject.AddComponent<ReversibleEffect>();
+            reversibleEffect.player = player;
+            reversibleEffect.characterStatModifiersModifier.movementSpeed_mult = 10f;
         }
-        public override void OnUpdate()
+        public void FixedUpdate()
         {
-            rand = UnityEngine.Random.value;
-            float percentChance = 0.005f;
+            this.rand = UnityEngine.Random.value;
             if (rand <= percentChance)
             {
                 WillSlip = true;
             }
-
             if (remaining <= 0 && WillSlip)
             {
-                ApplyModifiers();
+                reversibleEffect.ApplyModifiers();
                 remaining = 0.05f;
                 WillSlip = false;
             }
-            
-            if (remaining <= 0)
+            if (remaining < 0)
             {
-                ClearModifiers();
+                reversibleEffect.ClearModifiers();
             }
             else
             {
