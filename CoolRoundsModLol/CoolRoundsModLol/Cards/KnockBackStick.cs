@@ -58,16 +58,16 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = true,
-                    stat = "knockback",
+                    stat = "Knockback",
                     amount = "+20",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Damage",
                     amount = "-40%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };
         }

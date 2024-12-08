@@ -61,7 +61,7 @@ namespace CoolRoundsModLol.Cards
                     positive = true,
                     stat = "Speed when slipping",
                     amount = "+20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };
         }

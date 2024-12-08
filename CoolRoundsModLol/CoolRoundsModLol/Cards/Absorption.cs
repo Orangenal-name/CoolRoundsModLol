@@ -72,7 +72,7 @@ namespace CoolRoundsModLol.Cards
                     positive = false,
                     stat = "Attack Speed",
                     amount = "-50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };
         }

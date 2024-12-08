@@ -61,7 +61,7 @@ namespace CoolRoundsModLol.Cards
                 {
                     positive = false,
                     stat = "Reload Time",
-                    amount = "-30%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

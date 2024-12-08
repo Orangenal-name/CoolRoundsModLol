@@ -62,14 +62,14 @@ namespace CoolRoundsModLol.Cards
                     positive = false,
                     stat = "ATKSPD",
                     amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.slightlySmaller
                 },
                 new CardInfoStat()
                 {
                     positive = false,
                     stat = "Damage",
                     amount = "-50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                    simepleAmount = CardInfoStat.SimpleAmount.lower
                 }
             };
         }
