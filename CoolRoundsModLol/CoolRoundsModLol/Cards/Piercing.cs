@@ -24,6 +24,7 @@ namespace CoolRoundsModLol.Cards
             //Edits values on player when card is selected
             gun.unblockable = true;
             gunAmmo.maxAmmo -= 2;
+            gun.damage /= 4;
             #if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             #endif
@@ -59,9 +60,16 @@ namespace CoolRoundsModLol.Cards
                 new CardInfoStat()
                 {
                     positive = false,
-                    stat = "ammo",
+                    stat = "Ammo",
                     amount = "-2",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Damage",
+                    amount = "-75%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotLower
                 }
             };
         }
