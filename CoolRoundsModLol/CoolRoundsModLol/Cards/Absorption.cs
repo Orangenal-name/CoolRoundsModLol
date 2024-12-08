@@ -1,4 +1,5 @@
-﻿using CoolRoundsModLol.RoundsEffects;
+﻿using CoolRoundsModLol.MonoBehaviours;
+using CoolRoundsModLol.RoundsEffects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,16 @@ namespace CoolRoundsModLol.Cards
         {
             //Edits values on player when card is selected
             player.gameObject.GetOrAddComponent<AbsorbEffect>();
-            player.gameObject.GetOrAddComponent<AbsorbRemoveEffect>();
-            #if DEBUG
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(new ObjectsToSpawn
+            {
+                AddToProjectile = new GameObject("AbsorptionRemoval", new Type[]
+                    {
+                        typeof(AbsorbMono)
+                    })
+            });
+            gun.objectsToSpawn = list.ToArray();
+#if DEBUG
             UnityEngine.Debug.Log($"[{CoolRoundsModLol.ModInitials}][Card] {GetTitle()} has been added to player {player.playerID}.");
             #endif
         }
