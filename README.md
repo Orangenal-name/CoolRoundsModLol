@@ -21,6 +21,26 @@ Banana Peels - Slip around!<br />
 ## Updates
 
 <details>
+<summary>Upcoming</summary>
+ - Redo ALL card art<br />
+ - Add new cards!!<br />
+ - Buff bundling back to its former glory<br />
+ - Better audio management
+</details>
+
+<details>
+<summary>v2.0.0</summary>
+ - Rebalanced Piercing (Now divides your attack damage by 4)<br />
+ - Nerfed Bundling (No longer permanently bundles)<br />
+ - No more absorbed bullets after death<br />
+ - Absorbed bullets disappear after being shot rather than hitting something<br />
+ - Volume slider is out of 100 now<br />
+ - Finally fixed Teleporting Bullets allowing you to clip through stuff<br />
+ - Added simple stats for all cards that previously did not have them<br />
+ - Fixed Banana Peels not working after having died
+</details>
+
+<details>
 <summary>v1.4.0</summary>
  - Added banana peels card<br />
  - Changed how timer works on rubber banding
@@ -72,6 +92,4 @@ Banana Peels - Slip around!<br />
 </details>
 
 ## Mod Status
-This mod is pretty much abandoned. Please still report bugs when found, as I will occasionally check and fix them. You can do this in [the github repo issues tab,](https://github.com/Orangenal-name/CoolRoundsModLol/issues) or in [The Rounds Modding Community Discord Server](https://discord.gg/edegxT9CJH) in the #bug-reports channel (make sure to ping me @Orangenal name#9280)
-#### Will there be new cards?
-No, it is unlikely for there to be any new cards added to the mod.
+I'm back to working on this mod, please report bugs in [the github repo issues tab,](https://github.com/Orangenal-name/CoolRoundsModLol/issues) or in [The Rounds Modding Community Discord Server](https://discord.gg/edegxT9CJH) in the #bug-reports channel (make sure to ping me @orangenaln)
