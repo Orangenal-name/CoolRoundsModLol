@@ -23,7 +23,7 @@ namespace CoolRoundsModLol
         public static CoolRoundsModLol instance { get; private set; }
         private const string ModId = "com.Cool.Rounds.Mod.lol";
         private const string ModName = "CoolRoundsModLol";
-        public const string Version = "2.0.0";
+        public const string Version = "2.0.1";
         public const string ModInitials = "CRML";
 
         void Awake()
