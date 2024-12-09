@@ -29,6 +29,11 @@ Banana Peels - Slip around!<br />
 </details>
 
 <details>
+<summary>v2.0.1</summary>
+ - Fixed Rubber Banding teleporting after a round had ended
+</details>
+
+<details>
 <summary>v2.0.0</summary>
  - Rebalanced Piercing (Now divides your attack damage by 4)<br />
  - Nerfed Bundling (No longer permanently bundles)<br />
