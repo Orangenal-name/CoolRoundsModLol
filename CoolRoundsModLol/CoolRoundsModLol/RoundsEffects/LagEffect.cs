@@ -25,6 +25,10 @@ namespace CoolRoundsModLol.RoundsEffects
         {
             if (remaining >= 0)
             {
+                if (player.data.health <= 0) {
+                    teleportQueueing = false;
+                    remaining = 0;
+                }
                 remaining -= Time.deltaTime;
                 teleportQueueing = true;
             }
