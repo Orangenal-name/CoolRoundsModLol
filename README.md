@@ -29,8 +29,8 @@ Banana Peels - Slip around!<br />
 </details>
 
 <details>
-<summary>v2.0.1</summary>
- - Fixed Rubber Banding teleporting after a round had ended
+<summary>v2.0.2</summary>
+ - Actually fixed Rubber Banding teleporting after a round had ended this time
 </details>
 
 <details>
