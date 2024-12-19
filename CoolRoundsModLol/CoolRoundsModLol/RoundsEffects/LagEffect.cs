@@ -25,9 +25,11 @@ namespace CoolRoundsModLol.RoundsEffects
         {
             if (remaining >= 0)
             {
-                if (player.data.health <= 0) {
-                    teleportQueueing = false;
+                // Check if phase is card pick (round has ended) and stop lag back
+                if (GameManager.instance.battleOngoing)
+                {
                     remaining = 0;
+                    teleportQueueing = false;
                 }
                 remaining -= Time.deltaTime;
                 teleportQueueing = true;
