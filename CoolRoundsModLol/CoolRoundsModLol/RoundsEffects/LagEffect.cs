@@ -26,13 +26,16 @@ namespace CoolRoundsModLol.RoundsEffects
             if (remaining >= 0)
             {
                 // Check if phase is card pick (round has ended) and stop lag back
-                if (GameManager.instance.battleOngoing)
+                if (!GameManager.instance.battleOngoing)
                 {
-                    remaining = 0;
+                    remaining = -1;
                     teleportQueueing = false;
+                    UnityEngine.Debug.Log("Cancel lag back");
                 }
-                remaining -= Time.deltaTime;
-                teleportQueueing = true;
+                else {
+                    remaining -= Time.deltaTime;
+                    teleportQueueing = true;
+                }
             }
             else if (teleportQueueing)
             {
